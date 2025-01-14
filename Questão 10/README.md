@@ -42,7 +42,13 @@ Foi criada uma coleção chamada loja-api no Postman que possui *5* requisiçõe
 *Obs:* A Requisição GET Filtrar produto pelo id=2 pode apresentar falha porque assume que o banco de dados se encontra vazio e o registro de id=2 seria o do Aspirador de pó.
 
 ### Como executar
-- Faça o download da coleção loja-api.postman_collection
-- Importe a coleção no seu Postman
-- Aperte no botão Run
+- Faça o download da coleção `loja-api.postman_collection.json`
+- Abra seu Postman
+- Clique no botão `import`
+- Importe o arquivo `loja-api.postman_collection.json`
+- Após carregar, clique no item `loja-api` que aparecerá na listagem esquerda do menu `Collections`.
+- Aperte no botão com o texto `Run`
+- A aba `Runner` será aberta. Deixe as configurações como estão e aperte no botão `Run loja-api`
 - Visualize o resultados
+
+**Obs**: O texto nas URLs `{{baseUrl}}` é uma varíavel de ambiente que vai por padrão com o valor ``localhost:8000``. se seu serviço estiver rodando em outra porta. Altere o valor desta variável. 

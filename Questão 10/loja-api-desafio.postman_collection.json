@@ -1,0 +1,293 @@
+{
+	"info": {
+		"_postman_id": "058dffd4-ea10-456b-aeab-7d4eb393a078",
+		"name": "loja-api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "40989381"
+	},
+	"item": [
+		{
+			"name": "Cadastrar placa de vídeo NVDIA",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('Código de status deve ser 201', function() { \r",
+							"    pm.response.to.have.status(201)\r",
+							"})\r",
+							"\r",
+							"pm.test('Deve cadastrar placa de vídeo NVDIA RTX 4060', function() {\r",
+							"    const productJson = pm.response.json();\r",
+							"    pm.expect(productJson.nome).equals(\"NVDIA RTX 4060\")\r",
+							"    pm.expect(productJson.preco).equals(\"2500.00\")\r",
+							"    pm.expect(productJson.quantidade).equals(10)\r",
+							"    pm.expect(productJson.categoria).equals(4)\r",
+							"})\r",
+							"\r",
+							"pm.test('Tempo de resposta deve ser menor que 1s', function() {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+							"\r",
+							"})"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nome\": \"NVDIA RTX 4060\",\r\n    \"preco\": \"2500.00\",\r\n    \"quantidade\": 10,\r\n    \"categoria\": 4\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/produtos/?format=json",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"produtos",
+						""
+					],
+					"query": [
+						{
+							"key": "format",
+							"value": "json"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cadastrar aspirador de pó",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('Código de status deve ser 201', function() { \r",
+							"    pm.response.to.have.status(201)\r",
+							"})\r",
+							"\r",
+							"pm.test('Deve cadastrar aspirador de pó', function() {\r",
+							"    const productJson = pm.response.json();\r",
+							"    pm.expect(productJson.nome).equals(\"Aspirador de pó\");\r",
+							"    pm.expect(productJson.preco).equals(\"179.90\");\r",
+							"    pm.expect(productJson.quantidade).equals(2);\r",
+							"    pm.expect(productJson.categoria).equals(9);\r",
+							"})\r",
+							"\r",
+							"pm.test('Tempo de resposta deve ser menor que 1s', function() {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+							"})"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nome\": \"Aspirador de pó\",\r\n    \"preco\": \"179.90\",\r\n    \"quantidade\": 2,\r\n    \"categoria\": 9\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/produtos/?format=json",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"produtos",
+						""
+					],
+					"query": [
+						{
+							"key": "format",
+							"value": "json"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Listar todos os produtos",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('Código de status deve ser 200', function() { \r",
+							"    pm.response.to.have.status(200)\r",
+							"})\r",
+							"\r",
+							"pm.test('Deve haver pelo menos dois produtos', function() { \r",
+							"    const resJson = pm.response.json();\r",
+							"    pm.expect(resJson.length).gte(2)\r",
+							"})\r",
+							"\r",
+							"pm.test('Tempo de resposta deve ser menor que 3s', function() {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(3000);\r",
+							"})"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/produtos/?format=json",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"produtos",
+						""
+					],
+					"query": [
+						{
+							"key": "format",
+							"value": "json"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Filtrar produto pelo id=2",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('Código de status deve ser 200', function() { \r",
+							"    pm.response.to.have.status(200)\r",
+							"})\r",
+							"\r",
+							"pm.test('Produto de Id=2 deve ter o nome de `Aspirador de pó`', function() { \r",
+							"    const resJson = pm.response.json();\r",
+							"    pm.expect(resJson.nome).equals('Aspirador de pó');\r",
+							"})"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/produtos/2/?format=json",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"produtos",
+						"2",
+						""
+					],
+					"query": [
+						{
+							"key": "format",
+							"value": "json"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Filtrar produto pelo id=99999",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('Código de status de ser 404', function() { \r",
+							"    pm.response.to.have.status(404)\r",
+							"})\r",
+							"\r",
+							"pm.test('Produto de Id=99999 não deve existir', function() { \r",
+							"    const resJson = pm.response.json();\r",
+							"    pm.expect(resJson.detail).equals('Not found.');\r",
+							"})"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/produtos/99999/?format=json",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"produtos",
+						"99999",
+						""
+					],
+					"query": [
+						{
+							"key": "format",
+							"value": "json"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "localhost:8000",
+			"type": "default"
+		}
+	]
+}

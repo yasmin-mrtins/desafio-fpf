@@ -1,0 +1,72 @@
+Testes Exploratórios ,,,,,,,
+#,Test description,Setup,Steps Description,Expected Results,Result,Comments,Links
+1,Verificar Triângulo Equilátero,"1. Ter um navegador disponivel;
+2. Acessar a pagina  https://www.vanilton.net/triangulo/#","Vértice 1 = 5;
+Vértice 2 = 5;
+Vértice 3 = 5;
+Clicar em ""Identificar"".","Exibir mensagem: ""Triângulo Equilátero"".",Pass,,
+2,Verificar Triângulo Isósceles,"1. Ter um navegador disponivel;
+2. Acessar a pagina  https://www.vanilton.net/triangulo/#","Vértice 1 = 5;
+Vértice 2 = 5;
+Vértice 3 = 3;
+Clicar em ""Identificar"".","Exibir mensagem: ""Triângulo Isósceles"".",Pass,,
+3,Verificar Triângulo Escaleno,"1. Ter um navegador disponivel;
+2. Acessar a pagina  https://www.vanilton.net/triangulo/#","Vértice 1 = 5;
+Vértice 2 = 6;
+Vértice 3 = 7;
+Clicar em ""Identificar"".","Exibir mensagem: ""Triângulo Escaleno"".",Pass,,
+4,Não forma triângulo - Soma de lados inválida,"1. Ter um navegador disponivel;
+2. Acessar a pagina  https://www.vanilton.net/triangulo/#","Vértice 1 = 1;
+Vértice 2 = 2;
+Vértice 3 = 10
+Clicar em ""Identificar"".","Exibir mensagem de erro: ""Os valores não formam um triângulo.""",Fail,"A aplicação não faz a verificação de valores validos para a existência de um triangulo, só verifica a igualdade dos caracteres inseridos",
+5,Campo vazio - Vértice 1,"1. Ter um navegador disponivel;
+2. Acessar a pagina  https://www.vanilton.net/triangulo/#","Vértice 1 = vazio;
+Vértice 2 = 5;
+Vértice 3 = 6;
+Clicar em ""Identificar"".","Exibir mensagem de erro: ""Todos os campos devem ser preenchidos.""",Fail,Nenhuma mensagem de erro é mostrada,
+6,Campo vazio - Vértice 2,"1. Ter um navegador disponivel;
+2. Acessar a pagina  https://www.vanilton.net/triangulo/#","Vértice 1 = 5;
+ Vértice 2 = vazio;
+Vértice 3 = 6;
+Clicar em ""Identificar"".","Exibir mensagem de erro: ""Todos os campos devem ser preenchidos.""",Fail,Nenhuma mensagem de erro é mostrada,
+7,Campo vazio - Vértice 3,"1. Ter um navegador disponivel;
+2. Acessar a pagina  https://www.vanilton.net/triangulo/#","Vértice 1 = 5;
+Vértice 2 = 6;
+Vértice 3 = vazio;
+Clicar em ""Identificar"".","Exibir mensagem de erro: ""Todos os campos devem ser preenchidos.""",Fail,Nenhuma mensagem de erro é mostrada,
+8,Entrada não numérica - Letra,"1. Ter um navegador disponivel;
+2. Acessar a pagina  https://www.vanilton.net/triangulo/#","Vértice 1 = ""A"";
+Vértice 2 = 5;
+Vértice 3 = 6;
+Clicar em ""Identificar"".","Exibir mensagem de erro: ""Todos os valores devem ser números.""",Fail,Não faz a verificação se os caracteres são números ,
+9,Entrada não numérica - Caracteres especiais,"1. Ter um navegador disponivel;
+2. Acessar a pagina  https://www.vanilton.net/triangulo/#","Vértice 1 = ""@"";
+Vértice 2 = 5;
+Vértice 3 = 6;
+Clicar em ""Identificar"".","Exibir mensagem de erro: ""Todos os valores devem ser números.""",Fail,Não faz a verificação se os caracteres são números ,
+10,Valores negativos,"1. Ter um navegador disponivel;
+2. Acessar a pagina  https://www.vanilton.net/triangulo/#","Vértice 1 = -3;
+Vértice 2 = 5;
+Vértice 3 = 6;
+Clicar em ""Identificar"".","Exibir mensagem de erro: ""Os valores devem ser números positivos.""",Fail,Não faz a verificação se os números são valores positivos ,
+11,Valor zero,"1. Ter um navegador disponivel;
+2. Acessar a pagina  https://www.vanilton.net/triangulo/#","Vértice 1 = 0;
+Vértice 2 = 5,
+Vértice 3 = 6;
+Clicar em ""Identificar"".","Exibir mensagem de erro: ""Os valores devem ser maiores que zero.""",Fail,Não faz a verificação se os números são valores maiores que zero,
+12,Soma mínima válida (limite inferior),"1. Ter um navegador disponivel;
+2. Acessar a pagina  https://www.vanilton.net/triangulo/#","Vértice 1 = 2;
+Vértice 2 = 2,
+Vértice 3 = 3;
+Clicar em ""Identificar"".","Exibir mensagem: ""Triângulo Isósceles"".",Pass,,
+13,Todos os campos iguais a 1 (não forma),"1. Ter um navegador disponivel;
+2. Acessar a pagina  https://www.vanilton.net/triangulo/#","Vértice 1 = 1;
+Vértice 2 = 1;
+Vértice 3 = 1;
+Clicar em ""Identificar"".","Exibir mensagem de erro: ""Os valores não formam um triângulo.""",Fail,A aplicação não faz a verificação de valores validos para a existência de um triangulo,
+14,Espaços em branco nos campos,"1. Ter um navegador disponivel;
+2. Acessar a pagina  https://www.vanilton.net/triangulo/#","Vértice 1 = "" 5 "";
+Vértice 2 = ""6"";
+Vértice 3 = "" 7 "";
+Clicar em ""Identificar"".","Exibir mensagem: ""Triângulo Escaleno"".",Pass,,
